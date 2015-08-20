@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        // negative to fill inside the char
         NSStrokeWidthAttributeName : -4.0
     ]
     
@@ -28,11 +29,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         self.topTextField.text = "TOP"
         self.topTextField.defaultTextAttributes = memeTextAttributes
         // add textAlignment after defaultTextAttributes to avoid overriding
+        // transparent background
+        self.topTextField.backgroundColor = UIColor.clearColor()
         self.topTextField.textAlignment = NSTextAlignment.Center
         self.topTextField.delegate = self
         // setup bottom textfield
         self.bottomTextField.text = "BOTTOM"
         self.bottomTextField.defaultTextAttributes = memeTextAttributes
+        self.bottomTextField.backgroundColor = UIColor.clearColor()
         self.bottomTextField.textAlignment = NSTextAlignment.Center
         self.bottomTextField.delegate = self
         
@@ -115,12 +119,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     
     // when the keyboardWillShow notification is received, shift the view's frame up
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     // when the keyboardWillHide notification is received, shift the view's frame down
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
