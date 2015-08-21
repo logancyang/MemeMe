@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
         // negative to fill inside the char
         NSStrokeWidthAttributeName : -4.0
     ]
@@ -83,6 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         let controller = UIActivityViewController(activityItems: [memedImage],
             applicationActivities: nil)
         // save the meme object after sharing
+        // this is called a Closure
         controller.completionWithItemsHandler = {(save, completed, items, error) in
             if completed {
                 self.save(memedImage)
@@ -167,7 +168,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     func generateMemedImage() -> UIImage {
         
         // TODO: Hide toolbar and navbar
-        
+//        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//        self.navigationController?.setToolbarHidden(true, animated: false)
+
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
@@ -177,8 +180,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         UIGraphicsEndImageContext()
         
         // TODO:  Show toolbar and navbar
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationController?.setToolbarHidden(false, animated: false)
         
         return memedImage
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
 }
