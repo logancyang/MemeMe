@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,6 +19,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="daw-Hp-HH8">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXs-On-flg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -39,9 +41,6 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="69" y="432" width="262" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="8ZS-q6-GUh">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -57,13 +56,34 @@
                                         <exclude reference="g3O-LR-2Oq"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="69" y="102" width="262" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="g3O-LR-2Oq"/>
                                     </mask>
                                 </variation>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-52-LwJ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="hXK-Fs-hgP"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hXK-Fs-hgP"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="hXK-Fs-hgP"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="share:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Ly-WS-kbt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -80,6 +100,8 @@
                             <constraint firstItem="OXs-On-flg" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="XGu-gm-i4z"/>
                             <constraint firstItem="OXs-On-flg" firstAttribute="top" secondItem="daw-Hp-HH8" secondAttribute="bottom" id="XNG-31-t7x"/>
                             <constraint firstItem="OXs-On-flg" firstAttribute="top" secondItem="GWX-ZV-rBe" secondAttribute="bottom" constant="94" id="dSm-Oz-cVe"/>
+                            <constraint firstItem="ACM-52-LwJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="iEI-pQ-PWV"/>
+                            <constraint firstItem="ACM-52-LwJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="ona-Gf-cff"/>
                             <constraint firstItem="daw-Hp-HH8" firstAttribute="leading" secondItem="OXs-On-flg" secondAttribute="leading" id="zfj-Ef-VaR"/>
                         </constraints>
                         <variation key="default">
@@ -88,8 +110,15 @@
                                 <exclude reference="OXs-On-flg"/>
                                 <exclude reference="GWX-ZV-rBe"/>
                                 <exclude reference="8ZS-q6-GUh"/>
+                                <exclude reference="ACM-52-LwJ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4ik-1f-ePS"/>
+                                <exclude reference="9bs-3r-ivI"/>
+                                <exclude reference="UQZ-jN-dXS"/>
+                                <exclude reference="zfj-Ef-VaR"/>
+                                <exclude reference="iEI-pQ-PWV"/>
+                                <exclude reference="ona-Gf-cff"/>
                                 <exclude reference="1wh-Bd-DbR"/>
                                 <exclude reference="8JQ-Pz-kvt"/>
                                 <exclude reference="CaJ-bW-O2s"/>
@@ -98,10 +127,6 @@
                                 <exclude reference="XGu-gm-i4z"/>
                                 <exclude reference="XNG-31-t7x"/>
                                 <exclude reference="dSm-Oz-cVe"/>
-                                <exclude reference="4ik-1f-ePS"/>
-                                <exclude reference="9bs-3r-ivI"/>
-                                <exclude reference="UQZ-jN-dXS"/>
-                                <exclude reference="zfj-Ef-VaR"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -110,8 +135,15 @@
                                 <include reference="OXs-On-flg"/>
                                 <include reference="GWX-ZV-rBe"/>
                                 <include reference="8ZS-q6-GUh"/>
+                                <include reference="ACM-52-LwJ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="4ik-1f-ePS"/>
+                                <include reference="9bs-3r-ivI"/>
+                                <include reference="UQZ-jN-dXS"/>
+                                <include reference="zfj-Ef-VaR"/>
+                                <include reference="iEI-pQ-PWV"/>
+                                <include reference="ona-Gf-cff"/>
                                 <include reference="1wh-Bd-DbR"/>
                                 <include reference="8JQ-Pz-kvt"/>
                                 <include reference="CaJ-bW-O2s"/>
@@ -120,10 +152,6 @@
                                 <include reference="XGu-gm-i4z"/>
                                 <include reference="XNG-31-t7x"/>
                                 <include reference="dSm-Oz-cVe"/>
-                                <include reference="4ik-1f-ePS"/>
-                                <include reference="9bs-3r-ivI"/>
-                                <include reference="UQZ-jN-dXS"/>
-                                <include reference="zfj-Ef-VaR"/>
                             </mask>
                         </variation>
                     </view>

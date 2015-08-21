@@ -76,6 +76,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func share(sender: AnyObject) {
+        // generate the memedImage
+        var memedImage = generateMemedImage()
+        // define an instance of the ActivityViewController
+        let controller = UIActivityViewController(activityItems: [memedImage],
+            applicationActivities: nil)
+        // save the meme object after sharing
+        controller.completionWithItemsHandler = {(save, completed, items, error) in
+            if completed {
+                self.save(memedImage)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
+    
+    
     // Image Picker Delegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -135,6 +154,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
+    }
+    
+    // saving the Meme
+    func save(memedImage: UIImage) {
+        //Create the meme object
+        var meme = Meme(topTextField: topTextField, bottomTextField: bottomTextField,
+            imageOrigin: imagePicker.image!, memedImage: memedImage)
+    }
+    
+    // generate MemedImage
+    func generateMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar
+        
+        return memedImage
     }
 
 }
