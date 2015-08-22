@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var bottomToolBar: UIToolbar!
 
     @IBOutlet weak var imagePicker: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -168,11 +170,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
     func generateMemedImage() -> UIImage {
         
         // TODO: Hide toolbar and navbar
-//        self.navigationController?.setNavigationBarHidden(true, animated: false)
-//        self.navigationController?.setToolbarHidden(true, animated: false)
+        bottomToolBar.hidden = true
 
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 2.0)
         self.view.drawViewHierarchyInRect(self.view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
@@ -180,8 +181,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UITextF
         UIGraphicsEndImageContext()
         
         // TODO:  Show toolbar and navbar
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
-//        self.navigationController?.setToolbarHidden(false, animated: false)
+        bottomToolBar.hidden = false
         
         return memedImage
     }

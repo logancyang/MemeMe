@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>679A4181-38EA-45D3-B295-1A641FC661EF</string>
 	<key>IDESourceControlProjectName</key>
-	<string>MemeMe</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>791F9838B00C6B0EC6405755D00B5E215F5F9CFB</key>
 		<string>https://github.com/loganyc1934/MemeMe.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MemeMe.xcodeproj</string>
+	<string>MemeMe.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>791F9838B00C6B0EC6405755D00B5E215F5F9CFB</key>
