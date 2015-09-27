@@ -17,10 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="daw-Hp-HH8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="daw-Hp-HH8" customClass="imagePicker">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GWX-ZV-rBe">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXs-On-flg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
@@ -37,11 +42,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GWX-ZV-rBe">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="8ZS-q6-GUh">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <constraints>
@@ -65,15 +65,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8ZS-q6-GUh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="45" id="1wh-Bd-DbR">
-                                <variation key="widthClass=compact" constant="81"/>
+                            <constraint firstItem="8ZS-q6-GUh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="1wh-Bd-DbR">
+                                <variation key="widthClass=compact" constant="50"/>
                             </constraint>
                             <constraint firstItem="OXs-On-flg" firstAttribute="trailing" secondItem="daw-Hp-HH8" secondAttribute="trailing" id="4Cc-pq-udo"/>
                             <constraint firstItem="daw-Hp-HH8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="4ik-1f-ePS"/>
-                            <constraint firstItem="8ZS-q6-GUh" firstAttribute="trailing" secondItem="GWX-ZV-rBe" secondAttribute="trailing" id="8JQ-Pz-kvt"/>
+                            <constraint firstItem="8ZS-q6-GUh" firstAttribute="trailing" secondItem="GWX-ZV-rBe" secondAttribute="trailing" id="8JQ-Pz-kvt">
+                                <variation key="widthClass=compact" constant="1"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="daw-Hp-HH8" secondAttribute="trailing" id="9bs-3r-ivI"/>
                             <constraint firstItem="8ZS-q6-GUh" firstAttribute="leading" secondItem="GWX-ZV-rBe" secondAttribute="leading" id="CaJ-bW-O2s">
-                                <variation key="widthClass=compact" constant="-3"/>
+                                <variation key="widthClass=compact" constant="-2"/>
                             </constraint>
                             <constraint firstItem="OXs-On-flg" firstAttribute="centerX" secondItem="GWX-ZV-rBe" secondAttribute="centerX" id="L3E-rc-dcR">
                                 <variation key="widthClass=compact" constant="-1.5"/>
@@ -81,14 +83,15 @@
                             <constraint firstItem="daw-Hp-HH8" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="UQZ-jN-dXS"/>
                             <constraint firstItem="OXs-On-flg" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="XGu-gm-i4z"/>
                             <constraint firstItem="OXs-On-flg" firstAttribute="top" secondItem="daw-Hp-HH8" secondAttribute="bottom" id="XNG-31-t7x"/>
-                            <constraint firstItem="OXs-On-flg" firstAttribute="top" secondItem="GWX-ZV-rBe" secondAttribute="bottom" constant="94" id="dSm-Oz-cVe"/>
+                            <constraint firstItem="OXs-On-flg" firstAttribute="top" secondItem="GWX-ZV-rBe" secondAttribute="bottom" constant="50" id="dSm-Oz-cVe"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="daw-Hp-HH8" secondAttribute="bottom" id="uk5-CN-Djc"/>
                             <constraint firstItem="daw-Hp-HH8" firstAttribute="leading" secondItem="OXs-On-flg" secondAttribute="leading" id="zfj-Ef-VaR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="daw-Hp-HH8"/>
-                                <exclude reference="OXs-On-flg"/>
                                 <exclude reference="GWX-ZV-rBe"/>
+                                <exclude reference="OXs-On-flg"/>
                                 <exclude reference="8ZS-q6-GUh"/>
                             </mask>
                             <mask key="constraints">
@@ -104,13 +107,14 @@
                                 <exclude reference="9bs-3r-ivI"/>
                                 <exclude reference="UQZ-jN-dXS"/>
                                 <exclude reference="zfj-Ef-VaR"/>
+                                <exclude reference="uk5-CN-Djc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="daw-Hp-HH8"/>
-                                <include reference="OXs-On-flg"/>
                                 <include reference="GWX-ZV-rBe"/>
+                                <include reference="OXs-On-flg"/>
                                 <include reference="8ZS-q6-GUh"/>
                             </mask>
                             <mask key="constraints">
@@ -120,12 +124,13 @@
                                 <include reference="4Cc-pq-udo"/>
                                 <include reference="L3E-rc-dcR"/>
                                 <include reference="XGu-gm-i4z"/>
-                                <include reference="XNG-31-t7x"/>
+                                <exclude reference="XNG-31-t7x"/>
                                 <include reference="dSm-Oz-cVe"/>
                                 <include reference="4ik-1f-ePS"/>
                                 <include reference="9bs-3r-ivI"/>
                                 <include reference="UQZ-jN-dXS"/>
                                 <include reference="zfj-Ef-VaR"/>
+                                <include reference="uk5-CN-Djc"/>
                             </mask>
                         </variation>
                     </view>
@@ -138,15 +143,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="GWX-ZV-rBe" id="BXO-A9-IGf"/>
-                        <outlet property="bottomToolBar" destination="OXs-On-flg" id="8u9-rL-DQ2"/>
-                        <outlet property="cameraButton" destination="cbK-1K-k0o" id="ihg-EQ-bxL"/>
-                        <outlet property="imagePicker" destination="daw-Hp-HH8" id="G0B-lP-92Y"/>
+                        <outlet property="bottomToolBar" destination="OXs-On-flg" id="iwH-gW-6Ch"/>
+                        <outlet property="cameraButton" destination="cbK-1K-k0o" id="Ppc-c3-Vk3"/>
+                        <outlet property="imagePicker" destination="daw-Hp-HH8" id="Uo3-mg-aNY"/>
                         <outlet property="topTextField" destination="8ZS-q6-GUh" id="7IZ-Fg-u0e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297.5" y="337"/>
+            <point key="canvasLocation" x="1297" y="336"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLR-sj-f3T">
