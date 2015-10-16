@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class Meme{
-    var topText: String!
-    var bottomText: String!
-    var imageOrigin: UIImage!
-    var memedImage: UIImage!
+struct Meme {
+    let topText: String!
+    let bottomText: String!
+    let imageOrigin: UIImage!
+    let memedImage: UIImage!
+    
     init(topTextField: UITextField, bottomTextField: UITextField, imageOrigin: UIImage, memedImage: UIImage) {
         self.topText = topTextField.text
         self.bottomText = bottomTextField.text

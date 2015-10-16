@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ESF-ws-G3v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ESF-ws-G3v">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -19,15 +19,18 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="daw-Hp-HH8" customClass="imagePicker">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GWX-ZV-rBe">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXs-On-flg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <items>
                                     <barButtonItem title="Album" id="MJw-BD-UkJ">
                                         <connections>
@@ -44,6 +47,7 @@
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="8ZS-q6-GUh">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="g3O-LR-2Oq">
                                         <variation key="widthClass=compact" constant="374"/>
@@ -63,6 +67,7 @@
                                 </variation>
                             </textField>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8ZS-q6-GUh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="1wh-Bd-DbR">
@@ -95,6 +100,7 @@
                                 <exclude reference="8ZS-q6-GUh"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="uk5-CN-Djc"/>
                                 <exclude reference="1wh-Bd-DbR"/>
                                 <exclude reference="8JQ-Pz-kvt"/>
                                 <exclude reference="CaJ-bW-O2s"/>
@@ -107,7 +113,6 @@
                                 <exclude reference="9bs-3r-ivI"/>
                                 <exclude reference="UQZ-jN-dXS"/>
                                 <exclude reference="zfj-Ef-VaR"/>
-                                <exclude reference="uk5-CN-Djc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -118,6 +123,7 @@
                                 <include reference="8ZS-q6-GUh"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="uk5-CN-Djc"/>
                                 <include reference="1wh-Bd-DbR"/>
                                 <include reference="8JQ-Pz-kvt"/>
                                 <include reference="CaJ-bW-O2s"/>
@@ -130,7 +136,6 @@
                                 <include reference="9bs-3r-ivI"/>
                                 <include reference="UQZ-jN-dXS"/>
                                 <include reference="zfj-Ef-VaR"/>
-                                <include reference="uk5-CN-Djc"/>
                             </mask>
                         </variation>
                     </view>
@@ -140,6 +145,7 @@
                                 <action selector="share:" destination="vXZ-lx-hvc" id="4s7-ES-FE5"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="nM3-Xz-vQR"/>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="GWX-ZV-rBe" id="BXO-A9-IGf"/>
@@ -151,7 +157,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="336"/>
+            <point key="canvasLocation" x="1242" y="337"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KFC-RV-xYZ">
+            <objects>
+                <viewController id="dNn-tg-zZQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Ad-t7-wDX"/>
+                        <viewControllerLayoutGuide type="bottom" id="GEa-b3-pQe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PHV-II-8Gj">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5a-TY-ESq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1981.5" y="337"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLR-sj-f3T">
@@ -161,6 +185,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KuF-rn-ADc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
