@@ -10,16 +10,19 @@ import UIKit
 
 class MemeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var memes: [Meme]!
+    var memes: [Meme]{ return (UIApplication.sharedApplication().delegate as! AppDelegate).memes }
     
     @IBOutlet weak var myTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myTableView.delegate = self
+        myTableView.dataSource = self
         
-        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        memes = applicationDelegate.memes
+        // BUG: arrays is value typed, this is a copy of memes in AppDelegate
+//        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+//        memes = applicationDelegate.memes
     }
     
     override func viewWillAppear(animated: Bool) {
