@@ -409,7 +409,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ESF-ws-G3v" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tableIcon" id="70c-wi-q3i">
-                        <inset key="imageInsets" minX="7" minY="12" maxX="7" maxY="-4"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KuF-rn-ADc">
@@ -431,7 +431,7 @@
             <objects>
                 <navigationController id="mFb-rm-YFU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="collectionIcon" id="47Y-4g-gKC">
-                        <inset key="imageInsets" minX="7" minY="12" maxX="7" maxY="-4"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A29-AI-6IY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -448,8 +448,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="collectionIcon" width="44" height="45"/>
-        <image name="tableIcon" width="45" height="45"/>
+        <image name="collectionIcon" width="15" height="15"/>
+        <image name="tableIcon" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zds-qj-qG7"/>
