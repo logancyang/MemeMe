@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-// why no delegate and dataSource??
-// first time into collection view, image size very small, then recover
 class MemeCollectionViewController: UICollectionViewController {
     
     var memes: [Meme]{ return (UIApplication.sharedApplication().delegate as! AppDelegate).memes }
@@ -32,7 +30,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
         myCollectionView.reloadData()
     }
     

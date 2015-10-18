@@ -13,10 +13,6 @@ class MemeViewController: UIViewController {
     var meme: Meme!
     @IBOutlet weak var memedImage: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

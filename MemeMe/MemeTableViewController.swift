@@ -14,19 +14,6 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var myTableView: UITableView!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // set this in storyboard
-//        myTableView.delegate = self
-//        myTableView.dataSource = self
-        
-        // BUG: array is value typed, this is a copy of memes in AppDelegate and does not get updated
-        // because it is in viewDidLoad(), only gets run once
-//        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-//        memes = applicationDelegate.memes
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         myTableView.reloadData()
@@ -42,7 +29,7 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")!
-        let meme = self.memes[indexPath.row]
+        let meme = memes[indexPath.row]
         
         // Set the name and image
         cell.textLabel?.text = meme.topText + " " + meme.bottomText
@@ -53,9 +40,9 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeViewController") as! MemeViewController
-        detailController.meme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailController, animated: true)
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeViewController") as! MemeViewController
+        detailController.meme = memes[indexPath.row]
+        navigationController!.pushViewController(detailController, animated: true)
         
     }
     

@@ -15,32 +15,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
-        // negative to fill inside the char
-        NSStrokeWidthAttributeName : -4.0
-    ]
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // setup top textfield
-        topTextField.text = "TOP"
-        topTextField.defaultTextAttributes = memeTextAttributes
-        // add textAlignment after defaultTextAttributes to avoid overriding
-        // transparent background
-        topTextField.backgroundColor = UIColor.clearColor()
-        topTextField.textAlignment = NSTextAlignment.Center
-        topTextField.delegate = self
-        // setup bottom textfield
-        bottomTextField.text = "BOTTOM"
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.backgroundColor = UIColor.clearColor()
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.delegate = self
+        
+        prepareTextField(topTextField, defaultText: "TOP")
+        prepareTextField(bottomTextField, defaultText: "BOTTOM")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem (
             title: "Cancel",
@@ -50,8 +30,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    func prepareTextField(textField: UITextField, defaultText: String){
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
+            NSStrokeWidthAttributeName : -4.0
+        ]
+        textField.delegate = self
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.text = defaultText
+        textField.autocapitalizationType = .AllCharacters
+        textField.textAlignment = .Center
+    }
+    
     func cancel() {
-        if let navigationController = self.navigationController {
+        if let navigationController = navigationController {
             navigationController.popToRootViewControllerAnimated(true)
         }
     }
@@ -74,11 +68,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         unsubscribeFromKeyboardNotifications()
         unsubscribeFromKeyboardHideNotifications()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     /// Picking an image from album
@@ -118,7 +107,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     /// saving the Meme
     func save(memedImage: UIImage) {
         //Create the meme object
-        let meme = Meme(topTextField: topTextField, bottomTextField: bottomTextField,
+        let meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text,
             imageOrigin: imagePicker.image!, memedImage: memedImage)
         
         // Add it to the memes array in the Application Delegate
